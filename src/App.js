@@ -4,22 +4,22 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 
 function App() {
-  // L'utilisateur peu gérer l etat du state ouvert fermé
+  // state to control the visibility of the modal
   const [showModal, setShowModal] = useState(false)
 
 
-
-
   const handleFirstBtnClick = () => {
-    // Mettez ici la logique de validation que vous souhaitez effectuer
-    // par exemple, une boîte d'alerte pour indiquer exit
+    // Provide the logic you want to perform here
+    // for example, an alert box to indicate successful Exit
     alert('Exit!');
+    // and closed modal
     setShowModal(false)
   };
+
   // for second button
   const handleSecondBtnClick = () => {
-    // Mettez ici la logique de validation que vous souhaitez effectuer
-    // par exemple, une boîte d'alerte pour indiquer la validation réussie
+    // Provide the validation logic you want to perform here
+    // for example, an alert box to indicate successful validation
     alert('Validation successful!')
 
   };
@@ -50,7 +50,7 @@ function App() {
               DoubleBtnActive={{
                 text: 'Validation',// Text for the second button
                 onSecondBtnClick: handleSecondBtnClick,// Callback function when the second button is clicked
-              }} // il faut pouvoir lui donner un state !!!!!
+              }}
             />
             , document.body)}
       </header>

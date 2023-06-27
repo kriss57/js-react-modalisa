@@ -30,9 +30,17 @@ Next, you can set up the state to control the visibility of the modal:
 const [showModal, setShowModal] = useState(false);
 ```
 
-You can also define a callback function for the second button's click event:
+You can also define a callback function for the button's click event:
 
 ```js
+const handleFirstBtnClick = () => {
+  // Provide the logic you want to perform here
+  // for example, an alert box to indicate successful Exit
+  alert("Exit!");
+  // and closed modal
+  setShowModal(false);
+};
+
 const handleSecondBtnClick = () => {
   // Provide the validation logic you want to perform here
   // for example, an alert box to indicate successful validation
