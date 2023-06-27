@@ -1,7 +1,25 @@
 {
-  "name": "modalisa-two",
-  "version": "0.1.0",
-  "private": true,
+  "name": "react-modalisa",
+  "description": "react-modalisa is a modal component library for React. It is fully customizable and accessible, offering you the freedom and flexibility to create modal experiences for all types of users.",
+  "author": "Antit57",
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "modal",
+    "dialog",
+    "accessible",
+    "customizable"
+  ],
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": false,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -13,7 +31,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -34,5 +52,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.22.5",
+    "@babel/core": "^7.22.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kriss57/js-react-modalisa.git"
   }
 }
