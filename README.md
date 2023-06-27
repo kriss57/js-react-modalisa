@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+# Customizable accessible modal component in React / Test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Version 1.0.0 !!
 
-## Available Scripts
+## Introduction
 
-In the project directory, you can run:
+The react-modalisa package provides a customizable modal component for React applications. This component allows you to create accessible and visually appealing modals with various themes and customization options. This documentation will guide you on how to install and use the Modal component in your React project.
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To install the 'react-modalisa' package, run the following command:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```shell
+npm i react-modalisa
+```
 
-### `npm test`
+## Usage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To use the Modal component, you need to import it along with other necessary dependencies:
 
-### `npm run build`
+```js
+import React, { useState } from "react";
+import { createPortal } from "react-dom";
+import { Modal } from "react-modalisa";
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Next, you can set up the state to control the visibility of the modal:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```js
+const [showModal, setShowModal] = useState(false);
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You can also define a callback function for the second button's click event:
 
-### `npm run eject`
+```js
+const handleSecondBtnClick = () => {
+  // Provide the validation logic you want to perform here
+  // for example, an alert box to indicate successful validation
+  alert("Validation successful!");
+};
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To trigger the modal, use the following code:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```jsx
+<button onClick={() => setShowModal(true)}>open modal</button>
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Finally, integrate the Modal component after the return:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```jsx
+{
+  showModal &&
+    createPortal(
+      <Modal
+        closeModal={() => setShowModal(false)} // Callback function to close the modal
+        theme="success" // Theme of the modal ('validation', 'success', 'success-dark', 'alert', 'error')
+        title="Title" // Title of the modal // Optional ! //
+        textContent="Your text content!" // Text content of the modal
+        modalSize="modal-large" // Size of the modal ('modal-large' in this case)
+        miniBtnActive={true} // Flag indicating whether the mini button is active // true or false
+        FirstBtnActive={{
+          text: "Exit", // Text for the first button
+          onFirstBtnClick: handleFirstBtnClick, // Callback function when the first button is clicked
+        }}
+        DoubleBtnActive={{
+          text: "Validation", // Text for the second button
+          onSecondBtnClick: handleSecondBtnClick, // Callback function when the second button is clicked
+        }}
+      />,
+      document.body
+    );
+}
+```
 
-## Learn More
+## customization options
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The Modal component provides several customization options:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+theme (string): Sets the theme of the modal. Available options: "success", "success-dark", "alert", "error", "validation".
+title (string): Sets the title of the modal (optional).
+textContent (string): Sets the text content of the modal.
+modalSize (string): Sets the size of the modal. Available options: "modal-small", "modal-medium", "modal-large".
+miniBtnActive (boolean): Determines whether the mini button is active.
+FirstBtnActive (object): Configures the first button. Contains text (string) and onFirstBtnClick (callback function).
+DoubleBtnActive (object): Configures the second button. Contains text (string) and onSecondBtnClick (callback function).
 
-### Code Splitting
+## Issue
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+If you encounter an error (ts(7016)) during installation, follow these steps:
 
-### Analyzing the Bundle Size
+1./ Create an index.d.ts file at the root of your project.
+2/. Add the following line to the index.d.ts file:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```ts
+declare module "react-modalisa";
+```
