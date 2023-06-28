@@ -68,7 +68,7 @@ Finally, integrate the Modal component after the return:
         modalSize="modal-large" // Size of the modal ('modal-large' in this case)
         miniBtnActive={true} // Flag indicating whether the mini button is active // true or false
         FirstBtnActive={{
-          text: "Exit", // Text for the first button
+          text: "Close", // Text for the first button
           onFirstBtnClick: handleFirstBtnClick, // Callback function when the first button is clicked
         }}
         DoubleBtnActive={{

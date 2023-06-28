@@ -39,12 +39,12 @@ function App() {
             <Modal
               closeModal={() => setShowModal(false)} // Callback function to close the modal
               theme='success-dark' // Theme of the modal ('validation' in this case)
-              title='Title' // Title of the modal
+              title='Your Title' // Title of the modal
               textContent='Your text content!' // Content of the modal
               modalSize='modal-large' // Size of the modal ('modal-large' in this case)
               miniBtnActive={true} // Flag indicating whether the mini button is active
               FirstBtnActive={{
-                text: 'Exit', // Text for the first button
+                text: 'Close', // Text for the first button
                 onFirstBtnClick: handleFirstBtnClick // Callback function when the first button is clicked
               }}
               DoubleBtnActive={{
