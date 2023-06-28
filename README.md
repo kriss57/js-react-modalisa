@@ -65,7 +65,7 @@ Finally, integrate the Modal component after the return:
         theme="success" // Theme of the modal ('validation', 'success', 'success-dark', 'alert', 'error')
         title="Title" // Title of the modal // Optional ! //
         textContent="Your text content!" // Text content of the modal
-        modalSize="modal-large" // Size of the modal ('modal-large' in this case)
+        modalSize="modal-medium" // Size of the modal ('modal-large' in this case)
         miniBtnActive={true} // Flag indicating whether the mini button is active // true or false
         FirstBtnActive={{
           text: "Close", // Text for the first button
